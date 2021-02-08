@@ -55,9 +55,10 @@
                 <label for="textarea1">Про будинок</label>
             </div>
         </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+       Підтвердити
+        </button>
 
-        <input type="submit" class="btn waves-effect waves-light btn-large" name="Submit" value="Submit">
-        <input type="submit" class="btn waves-effect waves-light btn-large" name="Cancel" value="Cancel">
 
     </form>
 

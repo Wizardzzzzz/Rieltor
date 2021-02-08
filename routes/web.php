@@ -22,8 +22,8 @@ Route::get('/advertisement', function () {
 });
 
 Route::post('/advertisement/submit', function () {
-    var_dump($_POST);
-    return view('advertisement');
+    var_dump($_FILES);
+return Request::all();
 });
 Auth::routes();
 
