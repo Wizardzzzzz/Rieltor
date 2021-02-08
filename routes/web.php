@@ -15,8 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('main');
+})->name('main');
+
+Route::get('/advertisement', function () {
+    return view('advertisement');
 });
 
+Route::post('/advertisement/submit', function () {
+    var_dump($_POST);
+    return view('advertisement');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
