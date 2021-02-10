@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MakeAdvertiseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,7 @@ Route::get('/advertisement', function () {
     return view('advertisement');
 });
 
-Route::post('/advertisement/submit', function () {
-    var_dump($_FILES);
-return Request::all();
-});
+Route::post('/advertisement/submit', [MakeAdvertiseController::class, 'submit'])->name('submit');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

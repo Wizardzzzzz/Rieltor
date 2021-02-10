@@ -2,6 +2,16 @@
 @section('title')Створити оголошення@endsection
 
 @section('content')
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form action="advertisement\submit" method="post" enctype="multipart/form-data">
         @csrf
         <div class="input-field col s7">
@@ -11,12 +21,12 @@
             <div id="images"></div>
         </div>
         <div class="input-field col s7">
-            <input id="text1" type="text" name="Name" class="validate">
-            <label for="text1">Назва оголошення</label>
+            <input id="Name" type="text" name="Name" class="validate">
+            <label for="Name">Назва оголошення</label>
         </div>
         <div class="input-field col s7">
             <label for="selector">Кількість кімнат</label><br><br>
-            <select class="browser-default" id="selector">
+            <select class="browser-default" name="RoomNum" id="selector">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -56,7 +66,7 @@
             </div>
         </div>
         <button class="btn waves-effect waves-light" type="submit" name="action">
-       Підтвердити
+            Підтвердити
         </button>
 
 
