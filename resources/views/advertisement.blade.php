@@ -15,7 +15,7 @@
     <form action="advertisement\submit" method="post" enctype="multipart/form-data">
         @csrf
         <div class="input-field col s7">
-            <input type="file" name="photos" id="photos" onChange="myFunc(this)" multiple/>
+            <input type="file" name="photos[]" id="photos" onChange="myFunc(this)" multiple/>
         </div>
         <div class="row">
             <div id="images"></div>
@@ -50,10 +50,13 @@
         </div>
 
         <div class="input-field col s7">
-            <input id="text4" type="text" name="Infastructure" class="validate">
+            <input id="text4" type="text" name="Infrastructure" class="validate">
             <label for="text4">Інфраструктура</label>
         </div>
-
+        <div class="input-field col s7">
+            <input id="text5" type="text" name="Area" class="validate">
+            <label for="text5">Площа</label>
+        </div>
         <div class="input-field col s7">
             <input type="text" name="Price">
             <label for="Price">Ціна</label>
@@ -61,7 +64,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <textarea id="textarea1" name="About" class="materialize-textarea"></textarea>
                 <label for="textarea1">Про будинок</label>
             </div>
         </div>
