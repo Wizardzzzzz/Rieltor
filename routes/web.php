@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MakeAdvertiseController;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('main');
 })->name('main');
 
+if(Auth::user()->lastName()=='admin')
 Route::get('/advertisement', function () {
     return view('advertisement');
 });
