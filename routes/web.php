@@ -14,15 +14,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-})->name('main');
 
-if(Auth::user()->lastName()=='admin')
+//if(Auth::user()->lastName()=='admin')
 Route::get('/advertisement', function () {
     return view('advertisement');
 });
-
+Route::get('/', [MakeAdvertiseController::class, 'allData'])->name('main');
 Route::post('/advertisement/submit', [MakeAdvertiseController::class, 'submit'])->name('submit');
 
 Auth::routes();

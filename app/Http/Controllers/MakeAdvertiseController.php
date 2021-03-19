@@ -23,21 +23,18 @@ class MakeAdvertiseController extends Controller
 
     }
  private function saveImage($id){
-        $image = new Images();
+
 $count = 0;
      foreach ($_FILES['photos']['name'] as $key){
          $file = "../upload/".basename($_FILES['photos']['name'][$count]);
 
         if(move_uploaded_file($_FILES['photos']['tmp_name'][$count], $file)){
-            echo "Завантажено".basename($_FILES['photos']['name'][$count]);
-        }else{
-            echo "Не завантажено файл ".basename($_FILES['photos']['name'][$count]);
+            $image = new Images();
+            $image->adv_id =$id;
+            $image->path =  $key;
+            $image->save();
+            $count++;
         }
-         $count++;
-         $image->adv_id =$id;
-         $image->path = $key;
-         $image->save();
-         echo $key;
      }
     }
     public function submit(Request $request){
@@ -55,11 +52,10 @@ $count = 0;
         $advertisement->About = $request->input("About");
         $advertisement->IsArchieved = 0;
         $advertisement->Price = $request->input("Price");
-
-
-
         $advertisement->save();
-
-        return redirect()->route("home");
+      return redirect()->route("home");
+    }
+    public function allData(){
+        return view('main',['data'=>Advertisement::all()],['image'=>Images::all()]);
     }
 }

@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    <form action="advertisement\submit" method="post" enctype="multipart/form-data">
+    <form action="{{ route('submit') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="input-field col s7">
             <input type="file" name="photos[]" id="photos" onChange="myFunc(this)" multiple/>
