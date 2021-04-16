@@ -1,3 +1,21 @@
-.advertise-form {
-  align-content: center;
+
+.header-bg{
+    background-color: #81f;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    background-color: #f2f4f5;
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #81f;
 }

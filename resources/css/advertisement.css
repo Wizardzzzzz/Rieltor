@@ -1,0 +1,47 @@
+.advertise-form {
+    align-content: center;
+}
+.advertise-block{
+    margin: 10px;
+    border:inset;
+    width: 350px;
+}
+*{
+    box-sizing: unset;
+}
+
+img{
+    padding:10px 10px 0px 10px;
+    width: 330px;
+    height: 285px;
+}
+.carousel-block{
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 350px;
+}
+.row>*{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.link{
+    text-decoration: none;
+    color: #212529;
+    font-size: 18px;
+}
+.image-center {
+    text-align: center;
+
+}
+.advertise-header{
+    margin-top:5px ;
+    font-size: 20px;
+    margin: 0px;
+    text-align: center;
+}
+.down-text{
+    margin: 5px 0px 5px 5px;
+    font-size: 14px;
+    align-self: end
+}

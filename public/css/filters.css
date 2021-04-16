@@ -1,0 +1,33 @@
+.input-fld{
+    margin: 20px 20px 0px 20px;
+}
+.input-with-label{
+    margin-top: -4px;
+}
+body{
+    background-color: white;
+}
+#but {
+    display: none;
+}
+#confirm-but{
+margin-top: 24px;
+}
+#form{
+    margin:0 0 20px 1%;
+
+}
+
+@media (max-width: 992px){
+    #form{
+        display: none;
+        margin-left: 2%;
+        margin-bottom: 0px;
+    }
+    #but {
+        display: block;
+        margin-top: 15px;
+        margin-left: 2%;
+        width: 97%;
+    }
+}

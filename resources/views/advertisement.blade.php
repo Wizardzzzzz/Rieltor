@@ -1,5 +1,10 @@
 @extends('layouts.page')
+@section('style')
+    <link href="{{asset('css/advertisement.css')}}" rel="stylesheet" type="text/css"/>
+@endsection
 @section('title')Створити оголошення@endsection
+@section('head')Створити оголошення @endsection
+
 
 @section('content')
     @if($errors->any())
@@ -12,67 +17,108 @@
         </div>
     @endif
 
-    <form action="{{ route('submit') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('advertisements.index') }}" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="input-field col s7">
-            <input type="file" name="photos[]" id="photos" onChange="myFunc(this)" multiple/>
-        </div>
-        <div class="row">
-            <div id="images"></div>
-        </div>
-        <div class="input-field col s7">
-            <input id="Name" type="text" name="Name" class="validate">
-            <label for="Name">Назва оголошення</label>
-        </div>
-        <div class="input-field col s7">
-            <label for="selector">Кількість кімнат</label><br><br>
-            <select class="browser-default" name="RoomNum" id="selector">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-
-            </select>
-        </div>
-
-        <div class="input-field col s7">
-            <input id="text2" type="text" name="Type" class="validate">
-            <label for="text2">Тип будинку</label>
-        </div>
+        <div class="container">
+            <div class="row">
 
 
-        <div class="input-field col s7">
-            <input id="text3" type="text" name="Place" class="validate">
-            <label for="text3">Місцезнаходження</label>
-        </div>
+                <div class="white w-100">
 
-        <div class="input-field col s7">
-            <input id="text4" type="text" name="Infrastructure" class="validate">
-            <label for="text4">Інфраструктура</label>
-        </div>
-        <div class="input-field col s7">
-            <input id="text5" type="text" name="Area" class="validate">
-            <label for="text5">Площа</label>
-        </div>
-        <div class="input-field col s7">
-            <input type="text" name="Price">
-            <label for="Price">Ціна</label>
+                    <div class="form-group col-6">
+                        <label for="Name">Назва оголошення</label>
+                        <input id="Name" type="text" name="Name" class="form-control ">
 
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <textarea id="textarea1" name="About" class="materialize-textarea"></textarea>
-                <label for="textarea1">Про будинок</label>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="TypeAdvertise">Тип Оголошення</label>
+                        <select type="text" name="TypeAdvertise" class="form-control ">
+                            <option value="Продаж">Продаж</option>
+                            <option value="Оренда">Оренда</option>
+                            <option value="Подобова оренда">Подобова оренда</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="TypeHouse">Тип будинку</label>
+                        <select type="text" name="TypeHouse" class="form-control ">
+                            <option value="Квартира">Квартира</option>
+                            <option value="Будинок">Будинок</option>
+                            <option value="Кімната">Кімната</option>
+                            <option value="Ділянка">Ділянка</option>
+                            <option value="Комерційна">Комерційна</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="Place">Місто</label>
+                        <input type="text" name="Place" class="form-control ">
+
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="Address">Адреса</label>
+                        <input type="text" name="Address" class="form-control ">
+
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="Fettle">Стан будинку</label>
+                        <input type="text" name="Fettle" class="form-control ">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="Benefits">Перневаги</label>
+                        <input type="text" name="Benefits" class="form-control ">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="Infrastructure">Інфраструктура</label>
+                        <input type="text" name="Infrastructure" class="form-control">
+
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="Area">Площа</label>
+                        <input type="text" name="Area" class="form-control">
+                    </div>
+                    <div class="form-group col-3 ">
+                        <label for="RoomNum">Кількість кімнат</label>
+                        <select class="form-control" type="text" name="RoomNum" id="RoomNum">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                    <div class="form-label-group col-3">
+                        <label for="Superficiality">Поверховість</label>
+                        <input type="number" min="1" max="99" name="Superficiality" class="form-control"
+                               placeholder="Поверх" required=""
+                               autofocus="">
+                    </div>
+                </div>
+                <div class="white w-100">
+                    <div class="form-group">
+                        <label for="photos">Виберіть зображення</label><br>
+                        <input type="file" name="photos[]" id="photos" onChange="myFunc(this)" multiple/>
+                        <div id="images"></div>
+                    </div>
+                </div>
+
+
+                <div class="white">
+                    <div>
+                        <div class="form-group col-6">
+                            <label for="About">Про будинок</label>
+                            <textarea name="About" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <label for="Price">Ціна</label>
+                        <input type="text" name="Price" placeholder="Введіть ціну в $" class="form-control">
+                    </div>
+                </div>
+
             </div>
+            <input class="btn btn-primary" type="submit" value="Підтвердити">
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">
-            Підтвердити
-        </button>
-
-
     </form>
 
     <style>
@@ -83,9 +129,7 @@
     </style>
     <script>
         function myFunc(input) {
-
             var files = input.files || input.currentTarget.files;
-
             var reader = [];
             var images = document.getElementById('images');
             var name;
@@ -104,8 +148,6 @@
                             document.getElementById(name).src = e.target.result;
                         };
                     })(name);
-
-
                     console.log(files[i]);
                 }
             }

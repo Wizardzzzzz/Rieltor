@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MakeAdvertiseController;
+use App\Http\Controllers\AdvertiseController;
 use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,13 +16,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-
 //if(Auth::user()->lastName()=='admin')
-Route::get('/advertisement', function () {
-    return view('advertisement');
-});
-Route::get('/', [MakeAdvertiseController::class, 'allData'])->name('main');
-Route::post('/advertisement/submit', [MakeAdvertiseController::class, 'submit'])->name('submit');
+Route::resource('advertisements', AdvertiseController::class);
+//Route::get('/advertisement', function () {
+//    return view('advertisement');
+//});
+
+Route::get('/')->name('main');
+
 
 Auth::routes();
 

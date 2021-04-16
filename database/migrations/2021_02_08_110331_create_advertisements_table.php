@@ -13,10 +13,17 @@ class CreateAdvertisementsTable extends Migration
      */
     public function up()
     {
+
         Schema::create('advertisements', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
             $table->string('Name', 90);
             $table->string('Place', 150);
+            $table->string('Address', 90);
+            $table->string('Superficiality', 90);
+            $table->string('Fettle', 150);
+            $table->string('Benefits', 150);
+            $table->string('TypeAdvertise',30);
             $table->smallInteger('RoomNum');
             $table->string('TypeHouse', 30);
             $table->string('Infrastructure', 200);

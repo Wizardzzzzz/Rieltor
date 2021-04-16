@@ -1,0 +1,30 @@
+img {
+    height: 400px;
+    width: auto;
+}
+
+.image-center {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 1.5%;
+}
+
+.carousel-block {
+    margin-left: 0%;
+    margin-right: auto;
+    width: 600px;
+    height: 350px;
+    vertical-align: middle;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.text-block {
+    background-color: #f8f9fa;
+    height: 400px;
+    margin-top: 2%;
+}
+
+

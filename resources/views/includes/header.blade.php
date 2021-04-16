@@ -1,21 +1,39 @@
-<nav>
-    <div class="nav-wrapper purple darken-4">
-        <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-            <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-            <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-            <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+<nav class="navbar navbar-expand-lg navbar-light header-bg">
+    <div class="container">
+    <a class="navbar-brand" href="#">Navbar</a>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown link
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
             @if (Route::has('login'))
-                    @auth
-                    <li><a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a></li>
-                    @else
-                    <li><a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a></li>
-                    @endauth
+                @auth
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Home</a></li>
+                @else
+                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" >Login</a></li>
+                @endauth
             @endif
             @if (Route::has('register'))
-            <li><a href="{{ route('register') }}">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
             @endif
         </ul>
     </div>
+</div>
 </nav>
