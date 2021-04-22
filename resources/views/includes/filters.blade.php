@@ -1,4 +1,3 @@
-
 <div id="form">
 <form method="get" action="{{route("advertisements.index")}}">
     <div class="row">
@@ -64,8 +63,15 @@
             </select>
         </div>
         <div class="form-group input-fld col-1">
-            <input type="text" name="Area" placeholder="Площа" class="form-control ">
+            <select  type="text" name="Area"  class="form-control ">
+                <option value="" disabled selected>Площа</option>
+                <option value="До 50">До 50 </option>
+                <option value="Від 50 до 75">Від 50 до 75 </option>
+                <option value="Від 75 до 100">Від 75 до 100</option>
+                <option value="Від 100">Від 100</option>
+            </select>
         </div>
+
         <div class="form-label-group input-fld input-with-label col-2">
         <button id="confirm-but" class="btn btn-primary " type="submit">Застосувати</button>
         </div>

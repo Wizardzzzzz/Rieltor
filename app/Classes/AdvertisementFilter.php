@@ -48,40 +48,67 @@ class AdvertisementFilter
                 $max = 25000;
                 break;
             case "Від 25000$ до 50000$":
-                $min=25000;
-                $max=50000;
+                $min = 25000;
+                $max = 50000;
                 break;
             case "Від 50000$ до 75000$":
-                $min=50000;
-                $max=75000;
+                $min = 50000;
+                $max = 75000;
                 break;
             case "Від 75000$ до 100000$":
-                $min=75000;
-                $max=100000;
+                $min = 75000;
+                $max = 100000;
                 break;
         }
         $this->advertisements = $this->advertisements->where('Price', '>=', "$min");
         $this->advertisements = $this->advertisements->where('Price', '<=', "$max");
     }
 
-    private function Superficiality($from, $to)
+
+    private function SuperficialityFrom($value)
     {
-        if ($to != null) {
-            if ($from == null) {
-                $from = 1;
-            }
-            $this->advertisements = $this->advertisements->where('Superficiality', '>=', "$from");
-            $this->advertisements = $this->advertisements->where('Superficiality', '<=', "$to");
+
+        if ($value == null) {
+            $value = 1;
         }
+        $this->advertisements = $this->advertisements->where('Superficiality', '>=', "$value");
+
+    }
+
+    private function SuperficialityTo($value)
+    {
+        $this->advertisements = $this->advertisements->where('Superficiality', '<=', "$value");
+    }
+    private function Area ($value){
+        $min = 0;
+        $max = 999;
+        switch ($value) {
+
+            case "До 50":
+                $max = 50;
+                break;
+            case "Від 50 до 75":
+                $min = 50;
+                $max = 75;
+                break;
+            case "Від 75 до 100":
+                $min = 75;
+                $max = 100;
+                break;
+            case "Від 100":
+                $min = 100;
+                break;
+        }
+
+        $this->advertisements = $this->advertisements->where('Area', '>=', "$min");
+        $this->advertisements = $this->advertisements->where('Area', '<=', "$max");
     }
 
     public function filter()
     {
         foreach ($this->parameters() as $filter => $value) {
-            if (method_exists($this, $filter) && $filter != 'SuperficialityFrom' && $filter != 'SuperficialityTo') {
+            if (method_exists($this, $filter)&&$value!=null) {
                 $this->$filter($value);
-            } else {
-                $this->Superficiality($this->parameters()['SuperficialityFrom'], $this->parameters()['SuperficialityTo']);
             }
         }
 

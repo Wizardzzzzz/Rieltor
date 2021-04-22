@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light header-bg">
     <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href=""><img class="icon" src="{{asset("Company.ico")}}"></a>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">

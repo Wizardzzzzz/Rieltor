@@ -2,7 +2,12 @@
 .header-bg{
     background-color: #81f;
 }
-
+.icon{
+    margin-right: -20px;
+    margin-top: -10px;
+    width: 40px;
+    height: auto;
+}
 html {
     position: relative;
     min-height: 100%;
