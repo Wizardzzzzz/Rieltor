@@ -4,10 +4,7 @@
 @endsection
 
 @section('content')
-<form method="get">
 
-
-</form>
 <div class="container">
         <div class="row">
             @include('includes.filters')

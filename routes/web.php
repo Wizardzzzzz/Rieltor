@@ -22,9 +22,7 @@ Route::resource('advertisements', AdvertiseController::class);
 //    return view('advertisement');
 //});
 
-//Route::get('/')->name('main');
-
-
+Route::get('/home', [\App\Http\Controllers\Auth\RegisterController::class,'register'])->name('home');
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

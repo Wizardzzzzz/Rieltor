@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/main';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -56,7 +56,13 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
-
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectTo);
+    }
     /**
      * Create a new user instance after a valid registration.
      *
