@@ -8,33 +8,38 @@
 
             <ul class="nav nav-pills">
                 <li class="nav-item active">
-                    <a class="nav-link text-dark" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-dark" href="{{route('advertisements.index')}}">Оголошення</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-dark" href="#">Features</a>
+                    <a class="nav-link text-dark" href="#">Обрані</a>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
+                      Адмін панель
                     </a>
                     <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="{{route('advertisements.create')}}">Добавити оголошення</a>
+                        <a class="dropdown-item" href="">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
                 @if (Route::has('login'))
                     @auth
-                        <li class="nav-item"><a class="nav-link text-dark" href="{{ url('/home') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="{{ url('/') }}">Про нас</a></li>
+                        <li class="nav-item">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                            <a class="nav-link text-dark"  href="{{route('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();">Вихід</a>
+                            </form>
+                        </li>
                     @else
-                        <li class="nav-item"><a class="nav-link text-dark" href="{{ route('login') }}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="{{ route('register') }}">Реєстрація</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="{{ route('login') }}">Вхід</a></li>
                     @endauth
                 @endif
-                @if (Route::has('register'))
-                    <li class="nav-item"><a class="nav-link text-dark" href="{{ route('register') }}">Register</a></li>
-                @endif
+
             </ul>
         </header>
     </div>

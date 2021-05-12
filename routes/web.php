@@ -22,7 +22,15 @@ Route::resource('advertisements', AdvertiseController::class);
 //    return view('advertisement');
 //});
 
-Route::get('/home', [\App\Http\Controllers\Auth\RegisterController::class,'register'])->name('home');
+Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
+
+Route::get('logout', function ()
+{
+    auth()->logout();
+    Session()->flush();
+
+    return Redirect::to('/');
+})->name('logout');
 Auth::routes();
 
 

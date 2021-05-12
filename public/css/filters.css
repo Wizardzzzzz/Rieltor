@@ -17,18 +17,49 @@ margin-top: 24px;
     margin-left:1%;
 
 }
+#form2{
+    margin-left:1%;
 
-@media (max-width: 768px){
+}
+.btn1{
+    margin-left: -40px;
+}
+@media  (max-width: 991.98px){
+    .btn1{
+        margin-left: 9px;
+    }
+    .btn2{
+        margin-left: 4px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767.98px){
     #form{
         display: none;
-        margin-left: 2%;
-        margin-bottom: 0px;
+        margin-left: 7%;
+
+    }
+    #form2{
+        margin-left: 7%;
+
     }
     #but {
         display: block;
         margin-top: 15px;
-        margin-left: 2%;
-        width: 97%;
+        margin-left: 5%;
+        width: 90%;
+    }
+    .btn1{
+         margin-left: -5%;
+         margin-right: auto;
+         width: 100%;
+     }
+    .btn2{
+        margin-left: -5%;
+        margin-right: auto;
+        width: 100%;
+
     }
 }
 

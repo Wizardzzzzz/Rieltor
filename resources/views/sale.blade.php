@@ -11,7 +11,7 @@
         <div class="row">
             @include('includes.filters')
             <h2 class="text-center">Дошка оголошень</h2>
-            <form method="get" id="form" action="{{route("advertisements.index")}}">
+            <form method="get" id="form2" action="{{route("advertisements.index")}}">
                 <div class="row">
                     <div class="form-group input-fld offset-1 col-9">
                         <select type="text" name="TypeHouse" class="form-control ">
@@ -23,7 +23,7 @@
                             <option value="Комерційна">Комерційна</option>
                         </select>
                     </div>
-                    <div class="form-group input-fld input-with-label  col-2 ">
+                    <div class="form-group input-fld input-with-label col-2 btn2 ">
                         <button id="confirm-but" class="btn btn-primary " type="submit">Застосувати</button>
                     </div>
                 </div>

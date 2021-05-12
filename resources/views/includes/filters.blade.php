@@ -72,8 +72,8 @@
             </select>
         </div>
 
-        <div class="form-label-group input-fld input-with-label col-2">
-        <button id="confirm-but" class="btn btn-primary " type="submit">Застосувати</button>
+        <div class="form-label-group input-fld input-with-label col-2 text-center btn1">
+        <button id="confirm-but" class="btn btn-primary " type="submit">Знайти</button>
         </div>
     </div>
 
@@ -81,5 +81,5 @@
 
 </form>
 </div>
-<button id="but" type="button" onmousedown="viewDiv()" class="btn btn-primary">Розгорнути Фільтри</button>
+<button id="but" type="button" onmousedown="viewDiv()" class="btn btn-primary ">Розгорнути Фільтри</button>
 
