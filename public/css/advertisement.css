@@ -7,9 +7,7 @@
     width: 350px;
     margin-left: 8%;
 }
-*{
-    box-sizing: unset;
-}
+
 img{
     padding:10px 10px 0px 10px;
     width: 330px;
@@ -97,3 +95,4 @@ h2{
         height: 370px;
     }
 }
+

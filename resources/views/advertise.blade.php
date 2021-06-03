@@ -2,18 +2,15 @@
 @section('style')
     <link href="{{asset('css/advertise_page.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
-@section('head')
+@section('title')
     {{$advertisement[0]['Name']}}
 @endsection
 @section('content')
 
 
-    @foreach ($advertisement as $adv)
-
-    @endforeach
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="carousel-block col-lg-3">
+            <div class="carousel-block col-xl-5 col-lg-11 ">
 
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -48,6 +45,53 @@
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="offset-lg-1 list col-xl-5 col-lg-5 col-md-5 col-11">
+                <h4> {{$advertisement[0]['Name']}}</h4>
+                   <p>{{$advertisement[0]['RoomNum']}} кімнати, {{$advertisement[0]['Superficiality']}} поверх </p>
+                  <p class="price"><b>{{$advertisement[0]['Price']}} $</b></p>
+                  <p class="text-helper">{{round( $advertisement[0]['Price']/$advertisement[0]['Area'])}}  $/м<sup>2</sup></p>
+
+    <table>
+        <tbody>
+        <tr>
+            <td class="td-caption">Місто</td>
+            <td class="td-descr">{{$advertisement[0]['Place']}}</td>
+        </tr>
+        <tr>
+            <td class="td-caption">Адреса</td>
+            <td class="td-descr">{{$advertisement[0]['Address']}}</td>
+        </tr>
+        <tr>
+            <td class="td-caption">Стан</td>
+            <td class="td-descr">{{$advertisement[0]['Fettle']}}</td>
+        </tr>
+        <tr>
+            <td class="td-caption">Переваги</td>
+            <td class="td-descr">{{$advertisement[0]['Benefits']}}</td>
+        </tr>
+        <tr>
+            <td class="td-caption">Тип Оголошення</td>
+            <td class="td-descr">{{$advertisement[0]['TypeAdvertise']}}</td>
+        </tr>
+        <tr>
+            <td class="td-caption">Тип Будинку</td>
+            <td class="td-descr">{{$advertisement[0]['TypeHouse']}}</td>
+        </tr>
+        <tr>
+            <td class="td-caption">Інфраструктура</td>
+            <td class="td-descr">{{$advertisement[0]['Infrastructure']}}</td>
+        </tr>
+        <tr>
+            <td class="td-caption">Площа</td>
+            <td class="td-descr">{{$advertisement[0]['Area']}} м<sup>2</sup></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+            <div class="description col-xl-11 col-lg-5 col-md-5 col-11">
+                <h4>Опис</h4>
+                <p> {{$advertisement[0]['About']}}</p>
+            </div>
+</div>
+</div>
 @endsection

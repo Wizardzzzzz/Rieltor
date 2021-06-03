@@ -36,7 +36,5 @@ class Advertisement extends Model
         $advertisement->Price = $request->input("Price");
         $advertisement->save();
     }
-
-
     use HasFactory;
 }

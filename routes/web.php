@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MakeAdvertiseController;
 use App\Http\Controllers\AdvertiseController;
@@ -16,13 +18,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-//if(Auth::user()->lastName()=='admin')
-Route::resource('advertisements', AdvertiseController::class);
-//Route::get('/advertisement', function () {
-//    return view('advertisement');
-//});
 
-Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
+Route::resource('advertisements', AdvertiseController::class);
+
+Route::get('/',[HomeController::class,'index'])->name('home');
+
+Route::prefix('admin')->group(function () {
+  Route::get('action',[AdminController::class,'indexAction'])->name('admin.action');
+});
 
 Route::get('logout', function ()
 {
@@ -31,6 +34,7 @@ Route::get('logout', function ()
 
     return Redirect::to('/');
 })->name('logout');
+
 Auth::routes();
 
 

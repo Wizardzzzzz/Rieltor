@@ -4,7 +4,9 @@
     <link href="{{asset('css/filters.css')}}" rel="stylesheet" type="text/css"/>
 
 @endsection
-
+@section('title')
+    Оголошення
+@endsection
 @section('content')
 
     <div class="container">
@@ -16,11 +18,12 @@
                     <div class="form-group input-fld offset-1 col-9">
                         <select type="text" name="TypeHouse" class="form-control ">
                             <option value="" disabled selected>Сортування</option>
-                            <option value="Квартира">Найдешевші <i class="bi bi-arrow-up-short"></i></option>
+                            <option value="Квартира">Найдешевші</option>
                             <option value="Будинок">Найдорожчі</option>
-                            <option value="Кімната">Найдешевші за</option>
-                            <option value="Ділянка">Ділянка</option>
-                            <option value="Комерційна">Комерційна</option>
+                            <option value="Кімната">Найдешевші за м</option>
+                            <option value="Ділянка">Найдорожчі за м</option>
+                            <option value="Комерційна">Найменші за площею</option>
+                            <option value="Комерційна">Найбільші за площей</option>
                         </select>
                     </div>
                     <div class="form-group input-fld input-with-label col-2 btn2 ">

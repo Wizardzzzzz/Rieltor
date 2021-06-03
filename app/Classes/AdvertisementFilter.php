@@ -11,11 +11,10 @@ class AdvertisementFilter
 {
     protected $advertisements, $request;
 
-    public function __construct(Request $request)
+    public function __construct(Request $request,$advertisements)
     {
-        $this->advertisements = new Advertisement();
 
-
+        $this->advertisements = $advertisements;
         $this->request = $request->all();
     }
 
@@ -103,7 +102,12 @@ class AdvertisementFilter
         $this->advertisements = $this->advertisements->where('Area', '>=', "$min");
         $this->advertisements = $this->advertisements->where('Area', '<=', "$max");
     }
-
+    private function Address($value){
+        $this->advertisements = $this->advertisements->where('Address', 'like', "%$value%");
+    }
+    private function RoomNum($value){
+        $this->advertisements = $this->advertisements->where('RoomNum', '=', "$value");
+    }
     public function filter()
     {
         foreach ($this->parameters() as $filter => $value) {

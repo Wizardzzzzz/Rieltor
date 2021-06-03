@@ -8,23 +8,28 @@
 
             <ul class="nav nav-pills">
                 <li class="nav-item active">
-                    <a class="nav-link text-dark" href="{{route('advertisements.index')}}">Оголошення</a>
+                    <a class="nav-link text-dark hover" href="{{route('advertisements.index')}}">Оголошення</a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link text-dark" href="#">Обрані</a>
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link text-dark hover" href="#">Обрані</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Адмін панель
-                    </a>
-                    <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{route('advertisements.create')}}">Добавити оголошення</a>
-                        <a class="dropdown-item" href="">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+                @if(Auth::user()->isAdmin())
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Адмін панель
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li> <a class="dropdown-item" href="{{route('advertisements.create')}}">Добавити оголошення</a></li>
+                                <li> <a class="dropdown-item" href="{{route('admin.action')}}">Дія з оголошенням</a></li>
+                                <li><a class="dropdown-item" href="#">Користувачі</a></li>
+                                <li><a class="dropdown-item" href="#">Архів</a></li>
+                            </ul>
+                        </div>
+                @endif
+                @endauth
                 @if (Route::has('login'))
                     @auth
                         <li class="nav-item"><a class="nav-link text-dark" href="{{ url('/') }}">Про нас</a></li>

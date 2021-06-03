@@ -1,0 +1,13 @@
+@media (max-width: 767.98px){
+    #form{
+        display: none;
+        margin-left: 7%;
+
+    }
+    #but {
+        display: block;
+        margin-top: 15px;
+        margin-left: 5%;
+        width: 90%;
+    }
+}

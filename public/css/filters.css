@@ -1,61 +1,74 @@
-.input-fld{
+.input-fld {
     margin: 20px 20px 0px 20px;
 }
-.input-with-label{
+
+.input-with-label {
     margin-top: -4px;
 }
-body{
+
+body {
     background-color: white;
 }
+
 #but {
     display: none;
 }
-#confirm-but{
-margin-top: 24px;
+
+#confirm-but {
+    margin-top: 24px;
 }
-#form{
-    margin-left:1%;
+
+#form {
+    margin-left: 1%;
 
 }
-#form2{
-    margin-left:1%;
+
+#form2 {
+    margin-left: 1%;
 
 }
-.btn1{
+
+.btn1 {
     margin-left: -40px;
 }
-@media  (max-width: 991.98px){
-    .btn1{
+
+@media (max-width: 991.98px) {
+    .btn1 {
         margin-left: 9px;
     }
-    .btn2{
+
+    .btn2 {
         margin-left: 4px;
         text-align: center;
     }
 }
 
-@media (max-width: 767.98px){
-    #form{
+@media (max-width: 767.98px) {
+    #form {
         display: none;
         margin-left: 7%;
 
     }
-    #form2{
+
+    #form2 {
         margin-left: 7%;
 
     }
+
     #but {
         display: block;
         margin-top: 15px;
         margin-left: 5%;
         width: 90%;
     }
-    .btn1{
-         margin-left: -5%;
-         margin-right: auto;
-         width: 100%;
-     }
-    .btn2{
+
+    .btn1 {
+        margin-left: -5%;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    .btn2 {
         margin-left: -5%;
         margin-right: auto;
         width: 100%;

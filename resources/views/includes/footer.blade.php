@@ -1,6 +1,6 @@
 <footer class="footer fixed-bottom">
-    <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+    <div class="container mt-3">
+        <p class="text-center align-middle ">©Ihor Khalupniak 2021</p>
     </div>
 </footer>
 

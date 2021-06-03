@@ -29,7 +29,7 @@ class CreateAdvertisementsTable extends Migration
             $table->string('Infrastructure', 200);
             $table->float('Area');
             $table->text('About');
-            $table->boolean('IsArchieved');
+            $table->boolean('IsArchieved')->default(false);
             $table->float('Price');
             $table->timestamps();
         });

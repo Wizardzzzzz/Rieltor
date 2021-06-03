@@ -17,16 +17,19 @@ class AdvertiseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+    public function __construct()
+    {
+        $this->middleware('admin')->only(['create','edit','update','delete']);
+    }
 
     public function index(Request $request)
     {
         $images=Images::getImage();
-        $filter = new AdvertisementFilter($request);
-        $advertisements =  $filter->filter()->get();
-//        $advertisements = new AdvertisementSort($request,$advertisements);
+        $advertisements = new Advertisement();
+        $filter = new AdvertisementFilter($request,$advertisements);
+        $advertisement =  $filter->filter()->paginate(12);
 
-        return view('sale',['data'=>$advertisements],['images'=>$images]);
+        return view('sale',['data'=>$advertisement],['images'=>$images]);
     }
 
     /**
@@ -65,7 +68,6 @@ class AdvertiseController extends Controller
         $table = \DB::select("show table status like '" . "advertisements" . "'"); //show previous id
         $id = $table[0]->Auto_increment;
         $this->validation($request);
-//        var_dump($request->input("RoomNum"));
         Advertisement::setAdvertise($request);
         Images::setImage($id);
         return redirect()->route("advertisements.show");
