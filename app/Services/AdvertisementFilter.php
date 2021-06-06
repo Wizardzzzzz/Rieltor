@@ -1,11 +1,10 @@
 <?php
 
 
-namespace App\Classes;
+namespace App\Services;
 
-use App\Models\Advertisement;
 use Illuminate\Http\Request;
-use function React\Promise\all;
+
 
 class AdvertisementFilter
 {

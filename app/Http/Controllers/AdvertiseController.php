@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Classes\AdvertisementFilter;
-use App\Classes\AdvertisementSort;
+use App\Services\AdvertisementFilter;
+use App\Services\AdvertisementSort;
 use App\Models\Advertisement;
 use App\Models\Images;
-
+use App\Services\Geocoding;
 
 use Illuminate\Http\Request;
 
@@ -27,7 +27,7 @@ class AdvertiseController extends Controller
         $images=Images::getImage();
         $advertisements = new Advertisement();
         $filter = new AdvertisementFilter($request,$advertisements);
-        $advertisement =  $filter->filter()->paginate(12);
+        $advertisement =  $filter->filter()->where('IsArchieved','=','0')->paginate(18);
 
         return view('sale',['data'=>$advertisement],['images'=>$images]);
     }
@@ -70,7 +70,7 @@ class AdvertiseController extends Controller
         $this->validation($request);
         Advertisement::setAdvertise($request);
         Images::setImage($id);
-        return redirect()->route("advertisements.show");
+        return redirect()->route("advertisements.index");
     }
 
     /**
@@ -81,9 +81,11 @@ class AdvertiseController extends Controller
      */
     public function show($id)
     {
+        $geocoding = new Geocoding();
         $advertisement = Advertisement::getAdvertiseById($id);
         $images = Images::getImagesById($id);
-
+        $coordinates = $geocoding->getCoordinate($advertisement->Address,$advertisement->City);
+        var_dump($coordinates);
         return view('advertise', compact('advertisement', 'images'));
     }
 
@@ -95,7 +97,8 @@ class AdvertiseController extends Controller
      */
     public function edit($id)
     {
-
+    $advertisement = (new Advertisement())->where('id','=',$id)->get();
+    return view('admin.edit',compact('advertisement'));
     }
 
     /**
@@ -105,9 +108,11 @@ class AdvertiseController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
 
+       Advertisement::where('id',$id)->update($request->except(['_token','_method']));
+        return redirect()->route("admin.action");
     }
 
     //    public function archieve($id){
@@ -118,11 +123,16 @@ class AdvertiseController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
 
     public function destroy($id)
     {
-        //
+        $images = (new Images())->where('adv_id',$id);
+        $images->delete();
+        $advertisement = (new Advertisement())->find($id);
+        $advertisement->delete();
+
+        return redirect()->route("advertisements.archieve");
     }
 }

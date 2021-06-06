@@ -67,6 +67,12 @@ h2{
     font-size: 12px;
     color: rgb(127, 151, 153);
 }
+.paginator{
+    margin-left: 1%;
+    margin-top: 10px;
+    margin-bottom: 80px;
+
+}
 @media (min-width: 576px) and (max-width: 767.9px) {
     .advertise-block{
         width: 500px;

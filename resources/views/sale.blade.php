@@ -51,7 +51,11 @@
                 @endforeach
             </div>
         </div>
+        <div class="paginator justify-content-center">
+            {{$data->links()}}
+        </div>
     </div>
+
 @endsection
 <script src="{{asset("js/show-block.js")}}"></script>
 

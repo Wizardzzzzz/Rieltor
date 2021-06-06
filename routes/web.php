@@ -24,7 +24,10 @@ Route::resource('advertisements', AdvertiseController::class);
 Route::get('/',[HomeController::class,'index'])->name('home');
 
 Route::prefix('admin')->group(function () {
-  Route::get('action',[AdminController::class,'indexAction'])->name('admin.action');
+  Route::get('action',[AdminController::class,'indexAction'])->name('advertisements.action');
+    Route::get('archieve',[AdminController::class,'archieve'])->name('advertisements.archieve');
+    Route::get('action/archieve/{id}',[AdminController::class,'addToArchieve'])->name('advertisements.addToArchieve');
+    Route::get('users',[AdminController::class,'users'])->name('admin.users');
 });
 
 Route::get('logout', function ()
