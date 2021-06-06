@@ -92,6 +92,16 @@
                 <h4>Опис</h4>
                 <p> {{$advertisement[0]['About']}}</p>
             </div>
+
+            <div >
+                <div class="image-center">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d2252.28267268763!2d{{$coordinates['longitude']}}!3d{{$coordinates['latitude']}}!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1622980981917!5m2!1sru!2sua"
+                            width="1000" height="500" style="border:0;" allowfullscreen="" loading="lazy">
+                         </iframe>
+
+
+                </div>
+            </div>
 </div>
 </div>
 @endsection

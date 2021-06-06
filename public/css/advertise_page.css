@@ -30,7 +30,9 @@ tr{
     vertical-align: middle;
     text-align: center;
 }
-
+iframe{
+    margin: 0 auto 50px auto;
+}
 .text-block {
     background-color: #f8f9fa;
     height: 400px;
@@ -49,7 +51,7 @@ p{
 
 }
 .description{
-    margin: 50px 50px 100px 20px;
+    margin: 50px 50px 50px 20px;
 
 }
 .list{
@@ -115,7 +117,10 @@ tr{
         margin-left:70px;
         margin-right: 50px;
     }
-
+    iframe{
+        width: 850px;
+        height: 475px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px){
@@ -142,6 +147,10 @@ img {
     width: 700px;
     height:  470px;
 }
+iframe{
+    width: 700px;
+    height:  400px;
+}
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
     .list {
@@ -159,6 +168,10 @@ img {
         margin-right: auto;
     }
     img {
+        width: 560px;
+        height: 390px;
+    }
+    iframe{
         width: 560px;
         height: 390px;
     }
@@ -181,5 +194,9 @@ img {
     .content{
         margin-left: 0px;
         margin-right: 0px;
+    }
+    iframe{
+        width: 350px;
+        height: 250px;
     }
 }

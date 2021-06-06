@@ -81,12 +81,14 @@ class AdvertiseController extends Controller
      */
     public function show($id)
     {
-        $geocoding = new Geocoding();
+
         $advertisement = Advertisement::getAdvertiseById($id);
         $images = Images::getImagesById($id);
-        $coordinates = $geocoding->getCoordinate($advertisement->Address,$advertisement->City);
-        var_dump($coordinates);
-        return view('advertise', compact('advertisement', 'images'));
+        $coordinates = (new Geocoding())->getCoordinate($advertisement[0]->Address,$advertisement[0]->City);
+       $coordinates = $coordinates['data'][0];
+
+
+        return view('advertise', compact('advertisement', 'images','coordinates'));
     }
 
     /**
@@ -112,7 +114,7 @@ class AdvertiseController extends Controller
     {
 
        Advertisement::where('id',$id)->update($request->except(['_token','_method']));
-        return redirect()->route("admin.action");
+        return redirect()->route("advertisements.action");
     }
 
     //    public function archieve($id){
