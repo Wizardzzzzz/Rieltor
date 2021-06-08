@@ -11,10 +11,6 @@
                     <a class="nav-link text-dark hover" href="{{route('advertisements.index')}}">Оголошення</a>
                 </li>
                 @auth
-                <li class="nav-item">
-                    <a class="nav-link text-dark hover" href="#">Обрані</a>
-                </li>
-
                 @if(Auth::user()->isAdmin())
                         <div class="dropdown">
                             <a class="nav-link dropdown-toggle text-dark" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

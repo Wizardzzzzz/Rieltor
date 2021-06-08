@@ -11,7 +11,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel = "icon" href ="{{asset("keys.png")}}" type = "image/x-icon">
     <link href="{{asset('css/application.css')}}" rel="stylesheet" type="text/css"/>
-    <script src="{{asset('js/app.js')}}" defer></script>
    @yield('style')
 
     @include('includes.header')
@@ -22,7 +21,7 @@
 </head>
 <body>
 
-<div id="star" class="content">
+<div class="content">
 @yield('content')
 @include('includes.footer')
 </div>
