@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::resource('advertisements', AdvertiseController::class);
-
 Route::get('/',[HomeController::class,'index'])->name('home');
 
 Route::prefix('admin')->group(function () {

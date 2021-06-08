@@ -1,4 +1,4 @@
-@extends('layouts.page')
+ @extends('layouts.page')
 @section('style')
     <link href="{{asset('css/advertisement.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('css/filters.css')}}" rel="stylesheet" type="text/css"/>
@@ -8,22 +8,25 @@
     Оголошення
 @endsection
 @section('content')
-
+    <div id="star">
+<star></star>
+    </div>
     <div class="container">
         <div class="row">
             @include('includes.filters')
             <h2 class="text-center">Дошка оголошень</h2>
-            <form method="get" id="form2" action="{{route("advertisements.index")}}">
+
+            <form method="get" id="form2" action="{{route('advertisements.index')}}">
                 <div class="row">
                     <div class="form-group input-fld offset-1 col-9">
-                        <select type="text" name="TypeHouse" class="form-control ">
+                        <select type="text" name="Sort" class="form-control ">
                             <option value="" disabled selected>Сортування</option>
-                            <option value="Квартира">Найдешевші</option>
-                            <option value="Будинок">Найдорожчі</option>
-                            <option value="Кімната">Найдешевші за м</option>
-                            <option value="Ділянка">Найдорожчі за м</option>
-                            <option value="Комерційна">Найменші за площею</option>
-                            <option value="Комерційна">Найбільші за площей</option>
+                            <option value="Cheaper">Найдешевші</option>
+                            <option value="Expensive">Найдорожчі</option>
+                            <option value="MCheaper">Найдешевші за м</option>
+                            <option value="MExpensive">Найдорожчі за м</option>
+                            <option value="Smaller">Найменші за площею</option>
+                            <option value="Bigger">Найбільші за площей</option>
                         </select>
                     </div>
                     <div class="form-group input-fld input-with-label col-2 btn2 ">
@@ -32,6 +35,7 @@
                 </div>
 
             </form>
+
             <div class="row">
                 @foreach($data as $el)
                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -44,8 +48,10 @@
                                                             href="{{route("advertisements.show",$el->id)}}">{{$el->Name}}</a>
                             </h3>
                             <p class="down-text">{{$el->Place}} - {{$el->Address}}</p>
-                            <div class="price"><p>Ціна: {{$el->Price}}$ або {{round($el->Price/$el->Area)}}
-                                    $/м<sup>2</sup></p></div>
+                            <div class="price">Ціна: {{$el->Price}}$ або {{round($el->Price/$el->Area)}}
+                                    $/м<sup>2</sup></div>
+                            <div class="area"><p>Площа: {{$el->Area}}м<sup>2</sup></p></div>
+                            <div></div>
                         </div>
                     </div>
                 @endforeach

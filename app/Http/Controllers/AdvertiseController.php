@@ -9,6 +9,8 @@ use App\Models\Images;
 use App\Services\Geocoding;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Tests\Integration\Queue\Order;
 
 class AdvertiseController extends Controller
 {
@@ -24,11 +26,24 @@ class AdvertiseController extends Controller
 
     public function index(Request $request)
     {
-        $images=Images::getImage();
-        $advertisements = new Advertisement();
-        $filter = new AdvertisementFilter($request,$advertisements);
-        $advertisement =  $filter->filter()->where('IsArchieved','=','0')->paginate(18);
 
+        if($request['Sort']!=null){
+        $sort = new AdvertisementSort($request);
+        $sort = $sort->sort();
+
+        if($request['Sort']=='MCheaper'||$request['Sort']=='MExpensive'){
+            $advertisement = Advertisement::select(DB::raw('*,Price/Area as MPrice'))->orderBy('MPrice',$sort['param']);
+
+        }else{
+            $advertisement = Advertisement::orderBy($sort['name'],$sort['param']);
+        }}else{
+            $advertisement = new Advertisement();
+        }
+
+
+        $images=Images::getImage();
+        $filter = new AdvertisementFilter($request,$advertisement);
+        $advertisement =  $filter->filter()->where('IsArchieved','=','0')->paginate(18);
         return view('sale',['data'=>$advertisement],['images'=>$images]);
     }
 
