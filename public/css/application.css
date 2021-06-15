@@ -1,0 +1,36 @@
+
+.header-bg{
+    background-color: #81f;
+}
+.hover:hover{
+    background-color: #7799ff;
+    text-decoration-color: #718096;
+}
+.nav-item{
+    height: 40px;
+}
+.icon{
+    margin-right: 5px;
+    margin-top: -12px;
+    width: 60px;
+    height: auto;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    background-color: #f2f4f5;
+    margin-bottom: 60px;
+}
+.hover{
+    color: #6cb2eb;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #81f;
+}
