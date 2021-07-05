@@ -3,7 +3,7 @@
     <link href="{{asset('css/admin.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('title')Адмін панель@endsection
-@section('head')Дія з оголошенням @endsection
+@section('head')Користувачі@endsection
 @section('content')
     <table class="table table-hover">
         <thead>
